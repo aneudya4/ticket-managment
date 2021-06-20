@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global styles to this file, and also import other style files */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Geneva, Verdana, sans-serif;
+}
+
+html {
+  font-size: 10px;
+  font-weight: lighter;
+}
+
+body {
+  background: rgb(217, 216, 216);
+}
+
+.btn {
+  width: 100%;
+  padding: 1.3rem;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  color: white;
+  background-color: rgb(105, 170, 105);
+  border-color: rgb(105, 170, 105);
+  outline: none;
+  border: none;
+  border-radius: 4px;
+}
+
+.ticket__item__img__container {
+  display: flex;
+  border-bottom: none !important;
+}
+
+.ticket__item__img__container .ticket__img {
+  margin-right: 2rem;
+}

@@ -1,0 +1,48 @@
+.ticket__item {
+  padding: 2rem 0;
+  max-width: 90%;
+  margin: 0 auto;
+  border-bottom: 1px solid #ccc;
+}
+
+.ticket__item-info > * {
+  margin: 1rem 0;
+}
+
+.ticket__item-info h3 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.ticket__item-info p {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.ticket__item-price {
+  display: flex;
+  align-items: center;
+}
+
+.ticket__item-price p {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.ticket__item-price select {
+  margin-left: 1rem;
+  width: 50px;
+  text-align: center;
+  padding: 0.7rem 1rem;
+  height: calc(1.5em + 0.75rem + 2px);
+  font-size: 16px;
+  border: 1px solid #ccc;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: white
+    url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e")
+    right 0.75rem center/8px 10px no-repeat;
+  border: 1px solid #ccc;
+  border-radius: 0.6rem;
+}

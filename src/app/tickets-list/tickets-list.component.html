@@ -1,0 +1,17 @@
+<div class="ticket__list">
+  <app-tickets-item
+    *ngFor="let ticket of tickets"
+    [ticket]="ticket"
+  ></app-tickets-item>
+  <app-donation></app-donation>
+
+  <app-tickets-item
+    [ticket]="{
+      ticketName: 'Book Good Strategy - Bad Strategy',
+      ticketDesc: 'Random desc',
+      ticketPrice: 17.99,
+      ticketQuantity: 2,
+      url: '../../assets/svg/good-strategy.svg'
+    }"
+  ></app-tickets-item>
+</div>

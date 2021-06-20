@@ -1,0 +1,68 @@
+.ticket__item {
+  border-bottom: 1px solid #ccc;
+  padding: 2rem 0;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.ticket__item > * {
+  margin: 1rem 0;
+}
+
+.ticket__item-donation h3 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.ticket__item-donation p {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin: 0.4rem 0 2rem 0;
+}
+
+.ticket__item__donation-info p {
+  font-weight: bolder;
+  font-size: 1.3rem;
+  margin: 0.4rem 0;
+}
+
+.ticket__item__donation-amount {
+  display: flex;
+  justify-content: space-between;
+  max-width: 65%;
+}
+
+.ticket__item__donation-amount span {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: fit-content;
+  text-align: center;
+  align-self: center;
+  display: inline-block;
+  padding: 0.5rem;
+  font-size: 1.6rem;
+  padding: 0.5rem 1rem;
+}
+
+.ticket__item__donation-input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.ticket__item__donation-amount form span {
+  width: fit-content;
+  padding: 0.6rem;
+  border: 0;
+  border-right: 1px solid #ccc;
+  border-radius: 0;
+}
+.ticket__item__donation-amount span.selected {
+  color: white;
+  background-color: gray;
+}
+
+.ticket__item__donation-amount form input {
+  width: 110px;
+  border: 0;
+  padding-left: 0.6rem;
+  outline: none;
+}

@@ -1,0 +1,30 @@
+<div
+  class="ticket__item"
+  [ngClass]="{ ticket__item__img__container: ticket.url }"
+>
+  <div class="ticket__img" *ngIf="ticket.url">
+    <img src="{{ ticket.url }}" />
+  </div>
+  <div class="ticket__info">
+    <div class="ticket__item-info">
+      <h3>{{ ticket.ticketName }}</h3>
+      <p>{{ ticket.ticketDesc }}</p>
+      <!-- sales info -->
+    </div>
+    <div class="ticket__item-price">
+      <p>{{ ticket.ticketPrice < 1 ? "Free" : ticket.ticketPrice }}</p>
+      <select>
+        <option
+          *ngFor="
+            let item of [].constructor(ticket.ticketQuantity);
+            let i = index
+          "
+          value="i "
+        >
+          {{ i }}
+        </option>
+      </select>
+      <!-- todo: do the select ngFor -->
+    </div>
+  </div>
+</div>
