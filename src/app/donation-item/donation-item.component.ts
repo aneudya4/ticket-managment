@@ -6,8 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./donation-item.component.css'],
 })
 export class DonationItemComponent implements OnInit {
-  @Input() donation: any;
-  donationSelected: string = '';
+  @Input() donation: number;
   constructor() {}
 
   ngOnInit(): void {}

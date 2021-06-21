@@ -13,7 +13,7 @@ import {
   styleUrls: ['./donation.component.css'],
 })
 export class DonationComponent implements OnInit {
-  @Input() donations: any;
+  @Input() donations: number[];
   @Output() donationAdded = new EventEmitter();
   donationSelected: number = 0;
 
@@ -21,23 +21,27 @@ export class DonationComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onDonationSelected(donation: any) {
-    const myTag = this.el.nativeElement.querySelector('input');
+  onDonationSelected(donation: number) {
+    const inputTag = <HTMLInputElement>(
+      this.el.nativeElement.querySelector('input')
+    );
     this.donationSelected = donation;
-    const totalDonation = this.donationSelected + Number(myTag.value);
+    const totalDonation = this.donationSelected + Number(inputTag.value);
     this.donationAdded.emit({
       ticketName: 'Donation',
       ticketPrice: totalDonation,
-      ticketsToOrder: 1,
+      ticketToOrder: 1,
     });
   }
 
-  onInputChange(e: any) {
-    const totalDonation = Number(e.target.value) + this.donationSelected;
+  onInputChange(e: Event) {
+    const totalDonation =
+      Number((<HTMLInputElement>e.target).value) + this.donationSelected;
     this.donationAdded.emit({
       ticketName: 'Donation',
       ticketPrice: totalDonation,
-      ticketsToOrder: e.target.value === '' ? 0 : 1,
+      ticketToOrder: (<HTMLInputElement>e.target).value === '' ? 0 : 1,
     });
+    console.log(this.donations);
   }
 }

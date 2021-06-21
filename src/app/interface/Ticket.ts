@@ -1,7 +1,7 @@
 export interface Ticket {
   ticketName: string;
-  ticketDesc?: string;
-  ticketPrice: string | number;
+  ticketDesc: string;
+  ticketPrice: number;
   ticketQuantity: number;
   url?: string;
 }

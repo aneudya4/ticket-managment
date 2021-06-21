@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { CheckoutService } from '../service/checkout-service';
 import { Ticket } from '../interface/Ticket';
+import { TicketsToOrder } from '../interface/TicketsToOrder';
 
 @Component({
   selector: 'app-tickets-list',
@@ -25,9 +26,9 @@ export class TicketsListComponent implements OnInit {
     },
   ];
 
-  donations: Number[] = [50, 100, 200, 500];
+  donations: number[] = [50, 100, 200, 500];
 
-  @Output() selectedTickets: any = [];
+  @Output() selectedTickets: TicketsToOrder[] = [];
 
   constructor(private checkoutService: CheckoutService) {}
 
@@ -36,18 +37,18 @@ export class TicketsListComponent implements OnInit {
   onTicketAdded(orderInfo: {
     ticketName: string;
     ticketPrice: number;
-    ticketsToOrder: number;
+    ticketToOrder: number;
   }) {
-    if (orderInfo.ticketsToOrder === 0) {
+    if (orderInfo.ticketToOrder === 0) {
       this.checkoutService.sendCheckoutData([]);
     } else {
-      const ticketIndex: any = this.selectedTickets.findIndex(
-        (e: any) => e.ticketName === orderInfo.ticketName
+      const ticketIndex: number = this.selectedTickets.findIndex(
+        (e: TicketsToOrder) => e.ticketName === orderInfo.ticketName
       );
-      const newTicket: any = {
+      const newTicket: TicketsToOrder = {
         ticketName: orderInfo.ticketName,
         ticketPrice: orderInfo.ticketPrice,
-        ticketToOrder: orderInfo.ticketsToOrder,
+        ticketToOrder: orderInfo.ticketToOrder,
       };
       if (ticketIndex < 0) {
         this.selectedTickets.push(newTicket);

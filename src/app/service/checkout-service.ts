@@ -14,6 +14,7 @@ export class CheckoutService {
   }
 
   sendDonationsToCheckout(donations: any) {
+    console.log(donations);
     this.donationsAdded.next(donations);
   }
 }
