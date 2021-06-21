@@ -7,14 +7,20 @@
   <div class="ticket__item__donation-info">
     <p>I want to donate</p>
     <div class="ticket__item__donation-amount">
-      <span> $50</span>
-      <span> $100</span>
-      <span class="selected"> $200</span>
-      <span> $500</span>
+      <app-donation-item
+        *ngFor="let donation of donations"
+        [donation]="donation"
+        (click)="onDonationSelected(donation)"
+        [ngClass]="{ donation__selected: donationSelected === donation }"
+      ></app-donation-item>
       <form>
         <div class="ticket__item__donation-input">
           <span>$</span>
-          <input type="number" placeholder="Enter Amount" />
+          <input
+            type="number"
+            placeholder="Enter Amount"
+            (input)="onInputChange($event)"
+          />
         </div>
       </form>
     </div>

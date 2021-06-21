@@ -4,3 +4,8 @@
   justify-content: space-around;
   margin: 0 auto;
 }
+
+.tickets__container {
+  background: white;
+  padding: 0 2rem;
+}

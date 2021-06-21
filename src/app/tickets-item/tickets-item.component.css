@@ -46,3 +46,7 @@
   border: 1px solid #ccc;
   border-radius: 0.6rem;
 }
+
+.ticket__item-price select {
+  font-weight: 400;
+}

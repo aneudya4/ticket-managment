@@ -12,14 +12,18 @@
       <!-- sales info -->
     </div>
     <div class="ticket__item-price">
-      <p>{{ ticket.ticketPrice < 1 ? "Free" : ticket.ticketPrice }}</p>
-      <select>
+      <p *ngIf="ticket.ticketPrice < 1">Free</p>
+      <p *ngIf="ticket.ticketPrice >= 1">{{ ticket.ticketPrice | currency }}</p>
+
+      <select
+        (change)="onInputChange($event, ticket.ticketName, ticket.ticketPrice)"
+      >
         <option
           *ngFor="
             let item of [].constructor(ticket.ticketQuantity);
             let i = index
           "
-          value="i "
+          value="{{ i }}"
         >
           {{ i }}
         </option>

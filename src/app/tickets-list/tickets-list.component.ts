@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { CheckoutService } from '../service/checkout-service';
 import { Ticket } from '../interface/Ticket';
 
 @Component({
@@ -19,12 +20,42 @@ export class TicketsListComponent implements OnInit {
       ticketName: 'Alumni VIP Ticket',
       ticketDesc:
         'This livestream will broadcast via a private Youtube link that will be sent to ticket purchasers an hour prior to showtime',
-      ticketPrice: 0,
+      ticketPrice: 3500,
       ticketQuantity: 5,
     },
   ];
 
-  constructor() {}
+  donations: Number[] = [50, 100, 200, 500];
+
+  @Output() selectedTickets: any = [];
+
+  constructor(private checkoutService: CheckoutService) {}
 
   ngOnInit(): void {}
+
+  onTicketAdded(orderInfo: {
+    ticketName: string;
+    ticketPrice: number;
+    ticketsToOrder: number;
+  }) {
+    if (orderInfo.ticketsToOrder === 0) {
+      this.checkoutService.sendCheckoutData([]);
+    } else {
+      const ticketIndex: any = this.selectedTickets.findIndex(
+        (e: any) => e.ticketName === orderInfo.ticketName
+      );
+      const newTicket: any = {
+        ticketName: orderInfo.ticketName,
+        ticketPrice: orderInfo.ticketPrice,
+        ticketToOrder: orderInfo.ticketsToOrder,
+      };
+      if (ticketIndex < 0) {
+        this.selectedTickets.push(newTicket);
+      } else {
+        this.selectedTickets[ticketIndex] = newTicket;
+      }
+
+      this.checkoutService.sendCheckoutData(this.selectedTickets);
+    }
+  }
 }

@@ -2,8 +2,12 @@
   <app-tickets-item
     *ngFor="let ticket of tickets"
     [ticket]="ticket"
+    (ticketAdded)="onTicketAdded($event)"
   ></app-tickets-item>
-  <app-donation></app-donation>
+  <app-donation
+    [donations]="donations"
+    (donationAdded)="onTicketAdded($event)"
+  ></app-donation>
 
   <app-tickets-item
     [ticket]="{
@@ -13,5 +17,8 @@
       ticketQuantity: 2,
       url: '../../assets/svg/good-strategy.svg'
     }"
-  ></app-tickets-item>
+    (ticketAdded)="onTicketAdded($event)"
+  >
+    ></app-tickets-item
+  >
 </div>
