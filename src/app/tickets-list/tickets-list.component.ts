@@ -38,7 +38,7 @@ export class TicketsListComponent implements OnInit {
     ticketName: string;
     ticketPrice: number;
     ticketToOrder: number;
-  }) {
+  }): void {
     if (orderInfo.ticketToOrder === 0) {
       this.checkoutService.sendCheckoutData([]);
     } else {

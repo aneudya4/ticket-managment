@@ -34,7 +34,7 @@ export class DonationComponent implements OnInit {
     });
   }
 
-  onInputChange(e: Event) {
+  onInputChange(e: Event): void {
     const totalDonation =
       Number((<HTMLInputElement>e.target).value) + this.donationSelected;
     this.donationAdded.emit({
@@ -42,6 +42,5 @@ export class DonationComponent implements OnInit {
       ticketPrice: totalDonation,
       ticketToOrder: (<HTMLInputElement>e.target).value === '' ? 0 : 1,
     });
-    console.log(this.donations);
   }
 }

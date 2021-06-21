@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { TicketsToOrder } from '../interface/TicketsToOrder';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -9,12 +10,11 @@ export class CheckoutService {
   donationsAdded = new Subject();
   constructor() {}
 
-  sendCheckoutData(checkoutData: any) {
+  sendCheckoutData(checkoutData: TicketsToOrder[]) {
     this.checkoutOrders.next(checkoutData);
   }
 
-  sendDonationsToCheckout(donations: any) {
-    console.log(donations);
+  sendDonationsToCheckout(donations: number) {
     this.donationsAdded.next(donations);
   }
 }

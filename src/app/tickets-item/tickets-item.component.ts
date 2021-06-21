@@ -15,7 +15,7 @@ export class TicketsItemComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onInputChange(e: Event, ticketName: string, ticketPrice: number) {
+  onInputChange(e: Event, ticketName: string, ticketPrice: number): void {
     const ticketToOrder = (<HTMLInputElement>e.target).value;
     this.ticketAdded.emit({
       ticketName: ticketName,
