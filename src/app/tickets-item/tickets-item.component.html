@@ -8,7 +8,13 @@
   <div class="ticket__info">
     <div class="ticket__item-info">
       <h3>{{ ticket.ticketName }}</h3>
-      <p>{{ ticket.ticketDesc }}</p>
+      <p>
+        {{
+          ticket.ticketDesc === ""
+            ? "Description not available "
+            : ticket.ticketDesc
+        }}
+      </p>
       <!-- sales info -->
     </div>
     <div class="ticket__item-price">

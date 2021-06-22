@@ -21,15 +21,37 @@ export class DonationComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onDonationSelected(donation: number) {
+  onDonationSelected(donation: number): void {
     const inputTag = <HTMLInputElement>(
       this.el.nativeElement.querySelector('input')
     );
+
+    if (donation === this.donationSelected && Number(inputTag.value) === 0) {
+      this.donationSelected = 0;
+
+      this.donationAdded.emit({
+        ticketName: 'Donation',
+        ticketPrice: 0,
+        ticketToOrder: 0,
+      });
+      return;
+    }
+    if (donation === this.donationSelected && Number(inputTag.value) !== 0) {
+      this.donationSelected = 0;
+
+      this.donationAdded.emit({
+        ticketName: 'Donation',
+        ticketPrice: this.donationSelected + Number(inputTag.value),
+        ticketToOrder: 1,
+      });
+      return;
+    }
+
     this.donationSelected = donation;
-    const totalDonation = this.donationSelected + Number(inputTag.value);
+
     this.donationAdded.emit({
       ticketName: 'Donation',
-      ticketPrice: totalDonation,
+      ticketPrice: this.donationSelected + Number(inputTag.value),
       ticketToOrder: 1,
     });
   }
@@ -40,7 +62,10 @@ export class DonationComponent implements OnInit {
     this.donationAdded.emit({
       ticketName: 'Donation',
       ticketPrice: totalDonation,
-      ticketToOrder: (<HTMLInputElement>e.target).value === '' ? 0 : 1,
+      ticketToOrder:
+        (<HTMLInputElement>e.target).value === '' && this.donationSelected === 0
+          ? 0
+          : 1,
     });
   }
 }

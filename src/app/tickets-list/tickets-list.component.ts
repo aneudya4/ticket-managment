@@ -40,23 +40,31 @@ export class TicketsListComponent implements OnInit {
     ticketToOrder: number;
   }): void {
     if (orderInfo.ticketToOrder === 0) {
-      this.checkoutService.sendCheckoutData([]);
-    } else {
-      const ticketIndex: number = this.selectedTickets.findIndex(
-        (e: TicketsToOrder) => e.ticketName === orderInfo.ticketName
-      );
-      const newTicket: TicketsToOrder = {
-        ticketName: orderInfo.ticketName,
-        ticketPrice: orderInfo.ticketPrice,
-        ticketToOrder: orderInfo.ticketToOrder,
-      };
-      if (ticketIndex < 0) {
-        this.selectedTickets.push(newTicket);
-      } else {
-        this.selectedTickets[ticketIndex] = newTicket;
-      }
-
+      this.selectedTickets = this.filterUnselectedTicket(orderInfo.ticketName);
       this.checkoutService.sendCheckoutData(this.selectedTickets);
+      return;
     }
+
+    const newTicket: TicketsToOrder = {
+      ticketName: orderInfo.ticketName,
+      ticketPrice: orderInfo.ticketPrice,
+      ticketToOrder: orderInfo.ticketToOrder,
+    };
+
+    const existingTicketIndex: number = this.selectedTickets.findIndex(
+      (e: TicketsToOrder) => e.ticketName === orderInfo.ticketName
+    );
+
+    if (existingTicketIndex < 0) {
+      this.selectedTickets.push(newTicket);
+    } else {
+      this.selectedTickets[existingTicketIndex] = newTicket;
+    }
+
+    this.checkoutService.sendCheckoutData(this.selectedTickets);
+  }
+
+  filterUnselectedTicket(ticketName: string): TicketsToOrder[] {
+    return this.selectedTickets.filter((t: any) => t.ticketName !== ticketName);
   }
 }

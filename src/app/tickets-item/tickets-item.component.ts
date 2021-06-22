@@ -16,11 +16,12 @@ export class TicketsItemComponent implements OnInit {
   ngOnInit(): void {}
 
   onInputChange(e: Event, ticketName: string, ticketPrice: number): void {
-    const ticketToOrder = (<HTMLInputElement>e.target).value;
+    const ticketsToOrder: number = Number((<HTMLInputElement>e.target).value);
+
     this.ticketAdded.emit({
       ticketName: ticketName,
       ticketPrice: ticketPrice,
-      ticketToOrder: Number(ticketToOrder),
+      ticketToOrder: ticketsToOrder,
     });
   }
 }
