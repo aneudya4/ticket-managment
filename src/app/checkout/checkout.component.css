@@ -29,6 +29,10 @@
   margin: 1rem 0;
   font-size: 1.2rem;
 }
+.checkout__item p {
+  word-wrap: break-word;
+  font-size: 1.4rem;
+}
 
 .checkout__total {
   font-size: 1.7rem;
@@ -61,10 +65,14 @@
 }
 
 .checkout__code-input button {
-  /* margin-left: 1rem; */
   padding: 0.7rem 2.2rem;
   color: #0eb48a;
   background: transparent;
   border: 1px solid rgb(105, 170, 105);
   border-radius: 4px;
+}
+
+.checkout__item_waitlisted,
+.checkout__item_waitlisted + span {
+  color: gray;
 }

@@ -50,3 +50,16 @@
 .ticket__item-price select {
   font-weight: 400;
 }
+
+p.ticket__item-available {
+  background: rgb(238, 232, 232);
+  font-size: 1.4rem;
+  padding: 1rem 2rem;
+  margin-top: 1.5rem;
+}
+
+p.ticket__item-available span {
+  color: rgb(48, 123, 229);
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -4,4 +4,5 @@ export interface Ticket {
   ticketPrice: number;
   ticketQuantity: number;
   url?: string;
+  ticketsAvailable: number;
 }

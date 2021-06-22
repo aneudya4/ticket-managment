@@ -12,10 +12,12 @@ export class CheckoutComponent implements OnInit {
   constructor(private checkoutService: CheckoutService) {}
 
   getSubtotal(): number {
-    return this.checkout.reduce(
-      (a: number, b: TicketsToOrder) => a + b.ticketPrice * b.ticketToOrder,
-      0
-    );
+    return this.checkout.reduce((a: number, b: TicketsToOrder) => {
+      if (!b.isWaitListed) {
+        return a + b.ticketPrice * b.ticketToOrder;
+      }
+      return 0;
+    }, 0);
   }
 
   ngOnInit(): void {
@@ -25,7 +27,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   showCodeInput(): void {
-    this.isShowingCodeInput = !this.isShowingCodeInput;
+    this.isShowingCodeInput = true;
     console.log(this.checkout);
   }
 }

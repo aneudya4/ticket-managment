@@ -10,18 +10,62 @@ import { Ticket } from '../interface/Ticket';
 export class TicketsItemComponent implements OnInit {
   @Input() ticket: Ticket;
   @Output() ticketAdded = new EventEmitter<TicketsToOrder>();
+  ticketsToOrder: number = 0;
+  ticketWaitlisted: boolean = false;
 
   constructor() {}
 
   ngOnInit(): void {}
 
   onInputChange(e: Event, ticketName: string, ticketPrice: number): void {
-    const ticketsToOrder: number = Number((<HTMLInputElement>e.target).value);
+    this.ticketsToOrder = Number((<HTMLInputElement>e.target).value);
+    console.log(this.ticketsToOrder, 'sss');
+    if (this.ticketsToOrder === 0) {
+      this.ticketWaitlisted = false;
+
+      this.ticketAdded.emit({
+        ticketName: ticketName,
+        ticketPrice: ticketPrice,
+        ticketToOrder: 0,
+        isWaitListed: false,
+      });
+      return;
+    }
+    if (this.ticketsToOrder > this.ticket.ticketsAvailable) {
+      this.ticketAdded.emit({
+        ticketName: ticketName,
+        ticketPrice: ticketPrice,
+        ticketToOrder: this.ticket.ticketsAvailable,
+        isWaitListed: false,
+      });
+      return;
+    }
 
     this.ticketAdded.emit({
       ticketName: ticketName,
       ticketPrice: ticketPrice,
-      ticketToOrder: ticketsToOrder,
+      ticketToOrder: this.ticketsToOrder,
+      isWaitListed: false,
+    });
+  }
+
+  addToWaitList() {
+    this.ticketWaitlisted = true;
+    this.ticketAdded.emit({
+      ticketName: this.ticket.ticketName,
+      ticketPrice: this.ticket.ticketPrice,
+      ticketToOrder: this.ticketsToOrder - this.ticket.ticketsAvailable,
+      isWaitListed: true,
+    });
+  }
+  removeFromWaitList() {
+    this.ticketWaitlisted = false;
+
+    this.ticketAdded.emit({
+      ticketName: this.ticket.ticketName,
+      ticketPrice: this.ticket.ticketPrice,
+      ticketToOrder: 0,
+      isWaitListed: true,
     });
   }
 }

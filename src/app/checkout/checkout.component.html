@@ -4,12 +4,16 @@
   <div class="checkout__summary">
     <div class="checkout__order__details">
       <div class="checkout__item" *ngFor="let checkoutItem of checkout">
-        <P *ngIf="checkoutItem.ticketToOrder > 0">
-          {{ checkoutItem.ticketToOrder }}x {{ checkoutItem.ticketName }}</P
+        <P
+          [ngClass]="{ checkout__item_waitlisted: checkoutItem.isWaitListed }"
+          *ngIf="checkoutItem.ticketToOrder > 0"
         >
-        <span *ngIf="checkoutItem.ticketToOrder > 0">{{
-          checkoutItem.ticketPrice | currency
-        }}</span>
+          {{ checkoutItem.ticketToOrder }}x {{ checkoutItem.ticketName }}
+          <span *ngIf="checkoutItem.isWaitListed">Waitlisted</span>
+        </P>
+        <span *ngIf="checkoutItem.ticketToOrder > 0"
+          >{{ checkoutItem.ticketPrice | currency }}
+        </span>
       </div>
     </div>
 

@@ -48,3 +48,9 @@ body {
   color: white;
   background-color: gray;
 }
+
+select.ticket__item__not__available {
+  border: 1px solid red !important;
+  color: red;
+  outline: none;
+}
