@@ -1,0 +1,40 @@
+.ticket__form {
+  margin-left: 12rem;
+}
+
+.ticket__form-head {
+  background: white;
+  padding: 4rem 2rem;
+  width: 700px;
+  margin-bottom: 1rem;
+}
+
+.ticket__form-head p.ticket__skip {
+  color: #2082d8;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+.ticket__form-skip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.4rem;
+  min-width: 600px;
+}
+
+.ticket__from-img {
+  background-color: RGBA(0, 199, 42, 0.14);
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.ticket__form-details {
+  display: flex;
+  flex-direction: column;
+  /* padding: 10rem; */
+}
+
+.ticket__form-details p:first-of-type {
+  margin-bottom: 0.5rem;
+}

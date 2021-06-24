@@ -5,4 +5,5 @@ export interface Ticket {
   ticketQuantity: number;
   url?: string;
   ticketsAvailable: number;
+  isEvent: boolean;
 }

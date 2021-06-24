@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { CheckoutService } from '../service/checkout-service';
 import { TicketsToOrder } from '../interface/TicketsToOrder';
 @Component({
@@ -9,7 +11,15 @@ import { TicketsToOrder } from '../interface/TicketsToOrder';
 export class CheckoutComponent implements OnInit {
   checkout: TicketsToOrder[] = [];
   isShowingCodeInput: boolean = false;
-  constructor(private checkoutService: CheckoutService) {}
+
+  router: Router;
+
+  constructor(
+    private checkoutService: CheckoutService,
+    private _router: Router
+  ) {
+    this.router = _router;
+  }
 
   getSubtotal(): number {
     return this.checkout.reduce((a: number, b: TicketsToOrder) => {

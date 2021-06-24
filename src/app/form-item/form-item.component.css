@@ -1,0 +1,59 @@
+form {
+  width: 700px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.form__item {
+  padding: 4rem;
+  margin-bottom: 1rem;
+}
+
+.form__item h3 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.form__item .form__item-inputs input[type="text"],
+input[type="email"] {
+  padding: 1rem;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form__item-inputs input[type="text"]::placeholder {
+  color: rgba(140, 140, 140, 0.885);
+}
+
+.form__item .form__item-inputs input[type="text"]:first-of-type {
+  margin-right: 2.3rem;
+}
+
+.form__item .form__item-inputs input[type="text"]:nth-child(-n + 2) {
+  width: 48%;
+}
+
+.form__item .form__item-inputs input:nth-child(n + 3) {
+  display: block;
+  width: 100%;
+}
+
+.form__item-connections label {
+  margin-bottom: 116px;
+  font-size: 1.4rem;
+}
+
+input[type="radio"] {
+  border-color: rgb(186, 183, 183);
+}
+input[type="radio"],
+label {
+  vertical-align: baseline;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.form__item-inputs input:not(:last-child) {
+  margin-bottom: 1rem;
+}

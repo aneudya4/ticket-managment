@@ -3,4 +3,5 @@ export interface TicketsToOrder {
   ticketPrice: number;
   ticketToOrder: number;
   isWaitListed: boolean;
+  isEvent: boolean;
 }

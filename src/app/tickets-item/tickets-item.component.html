@@ -22,9 +22,17 @@
       <p *ngIf="ticket.ticketPrice >= 1">{{ ticket.ticketPrice | currency }}</p>
 
       <select
-        (change)="onInputChange($event, ticket.ticketName, ticket.ticketPrice)"
+        (change)="
+          onInputChange(
+            $event,
+            ticket.ticketName,
+            ticket.ticketPrice,
+            ticket.isEvent
+          )
+        "
         [ngClass]="{
-          ticket__item__not__available: ticket.ticketsAvailable < ticketsToOrder
+          ticket__item__not__available:
+            ticket.ticketsAvailable < ticketsToOrder && ticket.isEvent
         }"
       >
         <option
@@ -41,21 +49,25 @@
   </div>
   <p
     class="ticket__item-available"
-    *ngIf="ticketsToOrder === 1 && ticket.ticketsAvailable <= 2"
+    *ngIf="ticketsToOrder === 1 && ticket.ticketsAvailable <= 2 && !ticket.url"
   >
     Only {{ ticket.ticketsAvailable }} tickets available
     <span>Join waitlist</span>
   </p>
   <p
     class="ticket__item-available"
-    *ngIf="ticket.ticketsAvailable < ticketsToOrder && !ticketWaitlisted"
+    *ngIf="
+      !ticket.url &&
+      ticket.ticketsAvailable < ticketsToOrder &&
+      !ticketWaitlisted
+    "
   >
     {{ ticket.ticketsAvailable }} Ticket{{ ticket.ticketsAvailable > 1 && "s" }}
     added to cart. want to join waitlist for
     {{ ticketsToOrder - ticket.ticketsAvailable }}
     <span (click)="addToWaitList()">Join Waitlist</span>
   </p>
-  <p class="ticket__item-available" *ngIf="ticketWaitlisted">
+  <p class="ticket__item-available" *ngIf="ticketWaitlisted && !ticket.url">
     2 tickets Waitlisted. <span (click)="removeFromWaitList()">Cancel</span>
   </p>
 </div>

@@ -1,5 +1,7 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, OnDestroy } from '@angular/core';
 import { CheckoutService } from '../service/checkout-service';
+import { RouteService } from '../service/route-service';
+
 import { Ticket } from '../interface/Ticket';
 import { TicketsToOrder } from '../interface/TicketsToOrder';
 
@@ -8,7 +10,7 @@ import { TicketsToOrder } from '../interface/TicketsToOrder';
   templateUrl: './tickets-list.component.html',
   styleUrls: ['./tickets-list.component.css'],
 })
-export class TicketsListComponent implements OnInit {
+export class TicketsListComponent implements OnInit, OnDestroy {
   tickets: Ticket[] = [
     {
       ticketName: 'Free Ticket',
@@ -17,6 +19,7 @@ export class TicketsListComponent implements OnInit {
       ticketPrice: 0,
       ticketQuantity: 5,
       ticketsAvailable: 2,
+      isEvent: true,
     },
     {
       ticketName: 'Alumni VIP Ticket',
@@ -25,6 +28,7 @@ export class TicketsListComponent implements OnInit {
       ticketPrice: 3500,
       ticketQuantity: 5,
       ticketsAvailable: 3,
+      isEvent: true,
     },
   ];
 
@@ -32,7 +36,13 @@ export class TicketsListComponent implements OnInit {
 
   @Output() selectedTickets: TicketsToOrder[] = [];
 
-  constructor(private checkoutService: CheckoutService) {}
+  constructor(
+    private checkoutService: CheckoutService,
+    private routeService: RouteService
+  ) {}
+  ngOnDestroy(): void {
+    this.routeService.checkoutData = this.selectedTickets;
+  }
 
   ngOnInit(): void {}
 
@@ -41,13 +51,20 @@ export class TicketsListComponent implements OnInit {
     ticketPrice: number;
     ticketToOrder: number;
     isWaitListed: boolean;
+    isEvent: boolean;
   }): void {
-    if (orderInfo.ticketToOrder === 0) {
-      this.selectedTickets = this.filterUnselectedTicket(
-        orderInfo.ticketName,
-        orderInfo.isWaitListed
+    // takes out  the tickets when dont want the waitlisted anymore or when user selects 0
+
+    if (orderInfo.ticketToOrder === 0 && orderInfo.isWaitListed) {
+      this.selectedTickets = this.selectedTickets.filter(
+        (t: any) => !t.isWaitListed
       );
-      console.log(this.selectedTickets, 'ss');
+      this.checkoutService.sendCheckoutData(this.selectedTickets);
+      return;
+    }
+
+    if (orderInfo.ticketToOrder === 0) {
+      this.selectedTickets = this.filterUnselectedTicket(orderInfo.ticketName);
       this.checkoutService.sendCheckoutData(this.selectedTickets);
       return;
     }
@@ -57,6 +74,7 @@ export class TicketsListComponent implements OnInit {
       ticketPrice: orderInfo.ticketPrice,
       ticketToOrder: orderInfo.ticketToOrder,
       isWaitListed: orderInfo.isWaitListed,
+      isEvent: orderInfo.isEvent,
     };
 
     const existingTicketIndex: number = this.selectedTickets.findIndex(
@@ -74,12 +92,7 @@ export class TicketsListComponent implements OnInit {
     this.checkoutService.sendCheckoutData(this.selectedTickets);
   }
 
-  filterUnselectedTicket(
-    ticketName: string,
-    isWaitListed: boolean
-  ): TicketsToOrder[] {
-    return this.selectedTickets.filter(
-      (t: any) => t.ticketName !== ticketName || t.isWaitListed !== isWaitListed
-    );
+  filterUnselectedTicket(ticketName: string): TicketsToOrder[] {
+    return this.selectedTickets.filter((t: any) => t.ticketName !== ticketName);
   }
 }

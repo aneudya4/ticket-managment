@@ -47,3 +47,13 @@
     </div>
   </div>
 </section>
+<app-checkout-button
+  *ngIf="router.url !== '/checkout'"
+  linkName="Checkout"
+  linkUrl="/checkout"
+></app-checkout-button>
+<app-checkout-button
+  *ngIf="router.url !== '/'"
+  linkName="Review Session"
+  linkUrl="/"
+></app-checkout-button>

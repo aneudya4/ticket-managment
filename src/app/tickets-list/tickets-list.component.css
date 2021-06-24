@@ -1,3 +1,7 @@
+.ticket__list-container {
+  background: white;
+}
+
 .ticket__list {
   padding: 2rem 0;
 }

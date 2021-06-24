@@ -33,6 +33,7 @@ export class DonationComponent implements OnInit {
         ticketName: 'Donation',
         ticketPrice: 0,
         ticketToOrder: 0,
+        isEvent: false,
       });
       return;
     }
@@ -43,6 +44,7 @@ export class DonationComponent implements OnInit {
         ticketName: 'Donation',
         ticketPrice: this.donationSelected + Number(inputTag.value),
         ticketToOrder: 1,
+        isEvent: false,
       });
       return;
     }
@@ -53,6 +55,7 @@ export class DonationComponent implements OnInit {
       ticketName: 'Donation',
       ticketPrice: this.donationSelected + Number(inputTag.value),
       ticketToOrder: 1,
+      isEvent: false,
     });
   }
 
@@ -62,6 +65,7 @@ export class DonationComponent implements OnInit {
     this.donationAdded.emit({
       ticketName: 'Donation',
       ticketPrice: totalDonation,
+      isEvent: false,
       ticketToOrder:
         (<HTMLInputElement>e.target).value === '' && this.donationSelected === 0
           ? 0

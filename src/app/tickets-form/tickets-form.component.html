@@ -1,0 +1,32 @@
+<section class="ticket__form">
+  <div class="ticket__form-head">
+    <h2>Tickets</h2>
+
+    <div>
+      <div class="ticket__form-skip">
+        <div class="ticket__from-img">
+          <img src="../../assets/svg/rush-svg.svg" />
+        </div>
+
+        <div class="ticket__form-details">
+          <p>In a rush?</p>
+          <p>Regiter your tickets now or after checking out . Your choice</p>
+        </div>
+
+        <p class="ticket__skip">Fill this out later</p>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let ticketType of ticketsToOrder">
+    <div>
+      <app-form-item
+        *ngFor="
+          let item of [].constructor(ticketType.ticketToOrder);
+          let i = index
+        "
+        [ticket]="ticketType"
+        [index]="i"
+      ></app-form-item>
+    </div>
+  </div>
+</section>

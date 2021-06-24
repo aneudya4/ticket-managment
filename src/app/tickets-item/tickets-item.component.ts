@@ -17,9 +17,13 @@ export class TicketsItemComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onInputChange(e: Event, ticketName: string, ticketPrice: number): void {
+  onInputChange(
+    e: Event,
+    ticketName: string,
+    ticketPrice: number,
+    isEvent: boolean
+  ): void {
     this.ticketsToOrder = Number((<HTMLInputElement>e.target).value);
-    console.log(this.ticketsToOrder, 'sss');
     if (this.ticketsToOrder === 0) {
       this.ticketWaitlisted = false;
 
@@ -28,6 +32,7 @@ export class TicketsItemComponent implements OnInit {
         ticketPrice: ticketPrice,
         ticketToOrder: 0,
         isWaitListed: false,
+        isEvent: isEvent,
       });
       return;
     }
@@ -37,6 +42,7 @@ export class TicketsItemComponent implements OnInit {
         ticketPrice: ticketPrice,
         ticketToOrder: this.ticket.ticketsAvailable,
         isWaitListed: false,
+        isEvent: isEvent,
       });
       return;
     }
@@ -46,6 +52,7 @@ export class TicketsItemComponent implements OnInit {
       ticketPrice: ticketPrice,
       ticketToOrder: this.ticketsToOrder,
       isWaitListed: false,
+      isEvent: isEvent,
     });
   }
 
@@ -56,6 +63,7 @@ export class TicketsItemComponent implements OnInit {
       ticketPrice: this.ticket.ticketPrice,
       ticketToOrder: this.ticketsToOrder - this.ticket.ticketsAvailable,
       isWaitListed: true,
+      isEvent: true,
     });
   }
   removeFromWaitList() {
@@ -66,6 +74,7 @@ export class TicketsItemComponent implements OnInit {
       ticketPrice: this.ticket.ticketPrice,
       ticketToOrder: 0,
       isWaitListed: true,
+      isEvent: true,
     });
   }
 }

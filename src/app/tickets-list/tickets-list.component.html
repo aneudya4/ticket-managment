@@ -1,25 +1,28 @@
-<div class="ticket__list">
-  <app-tickets-item
-    *ngFor="let ticket of tickets"
-    [ticket]="ticket"
-    (ticketAdded)="onTicketAdded($event)"
-  ></app-tickets-item>
-  <app-donation
-    [donations]="donations"
-    (donationAdded)="onTicketAdded($event)"
-  ></app-donation>
+<div class="ticket__list-container">
+  <div class="ticket__list">
+    <app-tickets-item
+      *ngFor="let ticket of tickets"
+      [ticket]="ticket"
+      (ticketAdded)="onTicketAdded($event)"
+    ></app-tickets-item>
+    <app-donation
+      [donations]="donations"
+      (donationAdded)="onTicketAdded($event)"
+    ></app-donation>
 
-  <app-tickets-item
-    [ticket]="{
-      ticketName: 'Book Good Strategy - Bad Strategy',
-      ticketDesc: 'Learn from the experts of business process management',
-      ticketPrice: 17.99,
-      ticketQuantity: 5,
-      ticketsAvailable: 3,
-      url: '../../assets/svg/good-strategy.svg'
-    }"
-    (ticketAdded)="onTicketAdded($event)"
-  >
-    ></app-tickets-item
-  >
+    <app-tickets-item
+      [ticket]="{
+        ticketName: 'Book Good Strategy - Bad Strategy',
+        ticketDesc: 'Learn from the experts of business process management',
+        ticketPrice: 17.99,
+        ticketQuantity: 5,
+        ticketsAvailable: 3,
+        url: '../../assets/svg/good-strategy.svg',
+        isEvent: false
+      }"
+      (ticketAdded)="onTicketAdded($event)"
+    >
+      ></app-tickets-item
+    >
+  </div>
 </div>
