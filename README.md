@@ -11,30 +11,26 @@
 <img src="https://img.shields.io/badge/Angular-red.svg">
 
 
-<img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat">
-</p>
+### Technical Approach
+Review the the design prototype End-to-End then structure a plan on steps and implementation.
 
-<img src="./readme_assets/homepage.png" width="100%">
+Break down views into tasks using Trello
+Setup the project structure
+Implemented static views and control
+Update static view to mock data 
 
-<h2 align="center"><a  href="https://aneudy-binge.netlify.app/">Live Demo</a></h2>
+I would recommend changing  the way waitling works, I beleive is misleading allowing the user to select more tickets than the ones that are available.
 
-### [Contributions are Welcome](https://github.com/aneudya4/watched.git)
+I would also add a add to cart button  when user selects a ticket or a book.
 
-## Description
+Live
+Visit here Heroku
+Installation
 
-<p align="center">
-
-
-
-
-## About the project:
-
-
-
-
-```
+npm install (installing dependencies)
+Developpement
+npm run start-serve
+in your browser http://localhost:4200
 
 
-
-## Future scope:
 
