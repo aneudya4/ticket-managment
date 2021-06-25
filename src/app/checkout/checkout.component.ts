@@ -45,4 +45,8 @@ export class CheckoutComponent implements OnInit {
     const taxes = (2 / 100) * subtotal;
     return taxes.toFixed(2);
   }
+
+  getTotal() {
+    return this.getSubtotal() + parseFloat(this.getTaxes());
+  }
 }
