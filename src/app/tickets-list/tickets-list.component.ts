@@ -15,7 +15,7 @@ export class TicketsListComponent implements OnInit, OnDestroy {
     {
       ticketName: 'Free Ticket',
       ticketDesc:
-        'Free ticket for anyone to make a valuable contribution towards our future online events programme.thank you',
+        'Free ticket for anyone to make a valuable contribution towards our future online events programme. Thank you.',
       ticketPrice: 0,
       ticketQuantity: 5,
       ticketsAvailable: 2,
@@ -24,7 +24,16 @@ export class TicketsListComponent implements OnInit, OnDestroy {
     {
       ticketName: 'Alumni VIP Ticket',
       ticketDesc:
-        'This livestream will broadcast via a private Youtube link that will be sent to ticket purchasers an hour prior to showtime',
+        'This livestream will broadcast via a private YouTube link that will be sent to ticket purchasers an hour prior to showtime',
+      ticketPrice: 95.99,
+      ticketQuantity: 5,
+      ticketsAvailable: 4,
+      isEvent: true,
+    },
+    {
+      ticketName: 'Alumni VIP Ticket',
+      ticketDesc:
+        'This livestream will broadcast via a private YouTube link that will be sent to ticket purchasers an hour prior to showtime',
       ticketPrice: 3500,
       ticketQuantity: 5,
       ticketsAvailable: 3,

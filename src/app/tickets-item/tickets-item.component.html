@@ -63,11 +63,11 @@
     "
   >
     {{ ticket.ticketsAvailable }} Ticket{{ ticket.ticketsAvailable > 1 && "s" }}
-    added to cart. want to join waitlist for
+    Added to cart. Want to join the waitlist for
     {{ ticketsToOrder - ticket.ticketsAvailable }}
     <span (click)="addToWaitList()">Join Waitlist</span>
   </p>
   <p class="ticket__item-available" *ngIf="ticketWaitlisted && !ticket.url">
-    2 tickets Waitlisted. <span (click)="removeFromWaitList()">Cancel</span>
+    2 Tickets Waitlisted.. <span (click)="removeFromWaitList()">Cancel</span>
   </p>
 </div>

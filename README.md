@@ -29,9 +29,10 @@ I would also add a add to cart button  when user selects a ticket or a book.</p>
 <h2 align="center"><a  href="https://aneudy-binge.netlify.app/">Live Demo on heroku</a></h2>
 
 Installation
-
+```bash
 npm install (installing dependencies)
-npm run start-serve
+npm run start-dev
+```
 in your browser http://localhost:4200
 
 
