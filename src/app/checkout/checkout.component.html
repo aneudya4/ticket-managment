@@ -15,6 +15,9 @@
           >{{ checkoutItem.ticketPrice | currency }}
         </span>
       </div>
+      <div *ngIf="router.url === '/checkout'" class="checkout__edit">
+        <a routerLink="/"> Edit</a>
+      </div>
     </div>
 
     <div class="checkout__subtotal">
@@ -28,14 +31,14 @@
 
         <div class="checkout__subtotal-item">
           <p>taxes</p>
-          <span>$200</span>
+          <span>${{ getTaxes() }}</span>
         </div>
       </div>
     </div>
 
     <div class="checkout__total">
       <p>Total</p>
-      <span>${{ getSubtotal() + 200 }} </span>
+      <span>{{ getSubtotal() + getTaxes() | currency }} </span>
     </div>
 
     <div class="checkout__code">
@@ -55,5 +58,5 @@
 <app-checkout-button
   *ngIf="router.url !== '/'"
   linkName="Review Session"
-  linkUrl="/"
+  linkUrl="/checkout"
 ></app-checkout-button>

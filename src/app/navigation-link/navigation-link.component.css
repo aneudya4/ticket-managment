@@ -1,0 +1,17 @@
+.navigation {
+  font-size: 1.8rem;
+  position: relative;
+  left: 120px;
+  top: 20px;
+  margin-bottom: 10rem;
+}
+
+.navigation span {
+  font-size: 2rem;
+}
+
+.navigation a {
+  margin-left: 1.2rem;
+  color: black;
+  text-decoration: none;
+}

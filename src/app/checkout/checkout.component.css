@@ -29,6 +29,12 @@
   margin: 1rem 0;
   font-size: 1.2rem;
 }
+
+.checkout__edit {
+  font-size: 1.4rem;
+  color: #2082d8;
+  margin-bottom: 1.5rem;
+}
 .checkout__item p {
   word-wrap: break-word;
   font-size: 1.4rem;

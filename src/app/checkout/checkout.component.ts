@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { CheckoutService } from '../service/checkout-service';
 import { TicketsToOrder } from '../interface/TicketsToOrder';
 @Component({
@@ -38,6 +37,11 @@ export class CheckoutComponent implements OnInit {
 
   showCodeInput(): void {
     this.isShowingCodeInput = true;
-    console.log(this.checkout);
+  }
+
+  getTaxes() {
+    // calculate 2 % of subtotal
+    const subtotal = this.getSubtotal();
+    return (2 / 100) * subtotal;
   }
 }

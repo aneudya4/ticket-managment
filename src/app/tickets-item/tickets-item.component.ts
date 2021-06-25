@@ -9,6 +9,7 @@ import { Ticket } from '../interface/Ticket';
 })
 export class TicketsItemComponent implements OnInit {
   @Input() ticket: Ticket;
+
   @Output() ticketAdded = new EventEmitter<TicketsToOrder>();
   ticketsToOrder: number = 0;
   ticketWaitlisted: boolean = false;

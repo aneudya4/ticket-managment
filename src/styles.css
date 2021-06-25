@@ -37,3 +37,7 @@ select.ticket__item__not__available {
   color: red;
   outline: none;
 }
+
+a {
+  text-decoration: none;
+}

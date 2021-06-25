@@ -14,6 +14,7 @@ import { CheckoutButtonComponent } from './checkout-button/checkout-button.compo
 import { CheckoutService } from './service/checkout-service';
 
 import { FormItemComponent } from './form-item/form-item.component';
+import { NavigationLinkComponent } from './navigation-link/navigation-link.component';
 
 const appRoutes: Routes = [
   {
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
     TicketsFormComponent,
     CheckoutButtonComponent,
     FormItemComponent,
+    NavigationLinkComponent,
   ],
   imports: [
     BrowserModule,
