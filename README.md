@@ -1,27 +1,40 @@
-# BlackthornChallenge
+<h1 align="center">Event Attendee</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
+<h2 align="center">
 
-## Development server
+</h2>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<p align="center">
+  
+<img src="https://img.shields.io/badge/made%20by-aneudya4-blue.svg" >
 
-## Code scaffolding
+<img src="https://img.shields.io/badge/Angular-red.svg">
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+<img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat">
+</p>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+<img src="./readme_assets/homepage.png" width="100%">
 
-## Running unit tests
+<h2 align="center"><a  href="https://aneudy-binge.netlify.app/">Live Demo</a></h2>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### [Contributions are Welcome](https://github.com/aneudya4/watched.git)
 
-## Running end-to-end tests
+## Description
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+<p align="center">
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## About the project:
+
+
+
+
+```
+
+
+
+## Future scope:
+
