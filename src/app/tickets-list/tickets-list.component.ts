@@ -22,7 +22,7 @@ export class TicketsListComponent implements OnInit, OnDestroy {
       isEvent: true,
     },
     {
-      ticketName: 'Alumni VIP Ticket',
+      ticketName: 'Alumni Base Ticket',
       ticketDesc:
         'This livestream will broadcast via a private YouTube link that will be sent to ticket purchasers an hour prior to showtime',
       ticketPrice: 95.99,
