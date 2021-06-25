@@ -20,8 +20,8 @@ Review the the design prototype End-to-End then structure a plan on steps and im
 <p>Update static view to mock data </p>
 
 <p>
-I would recommend changing the way waitlisting works, I beleive is misleading allowing the user to select more tickets than the ones that are available.</p>
-<p>I would add a section for tickets with a small quantity of tickets and there the users would be able to add themselves to a waitlist.</p>
+I would recommend changing the way waitlisting works, I believe is misleading allowing the user to select more tickets than the ones that are available.</p>
+<p>I would add a section for tickets with a small quantity available, there the users would be able to add themselves to a waitlist for the ticket of their choice.</p>
 
 
 <p>
